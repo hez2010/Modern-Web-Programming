@@ -33,7 +33,6 @@ preloader .description {
 /* preloader animation defination */
 .progress.rotate span {
     position: absolute;
-    -ms-transform: rotate(225deg); /* IE compatibility */
     transform: rotate(225deg);
     animation: orbit 5s infinite;
 }
