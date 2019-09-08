@@ -8,6 +8,7 @@ body {
     background-color: white;
     background-image: url('http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/silverware.jpg');
     background-repeat: repeat;
+    background-attachment: fixed;
     padding-bottom: 20px;
 }
 
@@ -19,7 +20,7 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: underline;
     font-weight: normal;
     text-align: left;
-    padding: 0 0.2em;
+    letter-spacing: 0.2em;
 }
 
 .heading {
