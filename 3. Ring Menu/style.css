@@ -1,0 +1,252 @@
+/*
+  Author: Steven He
+  School: Sun Yat-sen University
+  Student Number: 17364025
+  Date: 10/4/2019
+*/
+
+#at-plus-container {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+#bottom-positioner {
+  left: 60%;
+  bottom: 20%;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+}
+
+#bottom-positioner ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#info-bar {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+}
+
+.info {
+  background-color: #7e7e80;
+  border-radius: 50%;
+  left: 40%;
+  bottom: -35%;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.5s 0s;
+}
+
+.info li span {
+  position: absolute;
+}
+
+.user span {
+  font-size: large;
+  left: 38px;
+  top: 0px;
+}
+
+.comment span {
+  font-size: xx-large;
+  left: 50px;
+  top: -5px;
+}
+
+.page span {
+  color: white;
+}
+
+.mine {
+  float: left;
+  width: 100%;
+}
+
+.mine span {
+  color: rgb(85, 211, 85);
+}
+
+.like span {
+  font-size: large;
+  left: 35px;
+  top: 0;
+}
+
+.posted span {
+  font-size: large;
+  left: 35px;
+  top: 0;
+}
+
+img {
+  height: 28px;
+  width: 28px;
+}
+
+.comment > img {
+  height: 35px;
+  width: 35px;
+}
+
+#control-ring-container {
+  position: absolute;
+}
+
+#control-ring {
+  height: 40px;
+  position: relative;
+  width: 40px;
+}
+
+.info ul {
+  position: relative;
+  transition: all 0.5s 0s;
+}
+
+.info li {
+  position: relative;
+}
+
+#button:hover .info {
+  height: 150px;
+  width: 150px;
+  transform: translate(-70px, -185px);
+  transition: all 0.5s 0s;
+}
+
+#button:hover .info > ul {
+  transform: translateX(70px);
+  transition: all 0.5s 0s;
+}
+
+.user {
+  left: -20px;
+  top: 15px;
+}
+
+.comment {
+  left: -30px;
+  top: 25px;
+}
+
+.posted {
+  left: -45px;
+  top: 30px;
+}
+
+.like {
+  left: 10px;
+  top: -2px;
+}
+
+.mask {
+  background-image: url(assets/images/nomask.png);
+  bottom: 0px;
+}
+
+.history {
+  background-image: url(assets/images/history.png);
+  bottom: 40px;
+}
+
+.message {
+  background-image: url(assets/images/message.png);
+  bottom: 80px;
+}
+
+.setting {
+  background-image: url(assets/images/setting.png);
+  bottom: 120px;
+}
+
+.sign {
+  background-image: url(assets/images/signin.png);
+  bottom: 160px;
+}
+
+.unread {
+  background-color: red;
+  border-radius: 50%;
+  font-size: 13px;
+  color: white;
+  height: 20px;
+  width: 20px;
+  left: 23px;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  top: -5px;
+}
+
+.button {
+  border-radius: 50%;
+  background-color: #777777;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  height: 40px;
+  width: 40px;
+  position: relative;
+  transition: all 0.5s 0s;
+}
+
+#button:hover .button {
+  opacity: 1;
+  transition: all 0.5s 0s;
+}
+
+#button:hover .mask {
+  transform: translate(-70px, -40px);
+}
+
+#button:hover .history {
+  transform: translate(-82px, 10px);
+}
+
+#button:hover .message {
+  transform: translate(-60px, 58px);
+}
+
+#button:hover .setting {
+  transform: translate(-8px, 77px);
+}
+
+#button:hover .sign {
+  transform: translate(42px, 55px);
+}
+
+#button:hover .unread {
+  opacity: 1;
+  transition: all 0.5s 0s;
+}
+
+.apb {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+}
+
+.icon {
+  background-color: #989fcf;
+  background-image: url(assets/images/atplus_white.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 75%;
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transition: all 0.5s 0s;
+}
+
+#button:hover .icon {
+  background-color: rgba(48, 63, 159, 1);
+  background-image: url(assets/images/atplus_green.png);
+  transform: scale(1.5, 1.5);
+  transition: all 0.5s 0s;
+}
