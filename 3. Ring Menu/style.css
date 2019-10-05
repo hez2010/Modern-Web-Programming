@@ -39,6 +39,8 @@
   width: 0;
   overflow: hidden;
   position: relative;
+  -webkit-transition: all 0.5s 0s;
+  -o-transition: all 0.5s 0s;
   transition: all 0.5s 0s;
 }
 
@@ -105,6 +107,8 @@ img {
 
 .info ul {
   position: relative;
+  -webkit-transition: all 0.5s 0s;
+  -o-transition: all 0.5s 0s;
   transition: all 0.5s 0s;
 }
 
@@ -115,12 +119,20 @@ img {
 #button:hover .info {
   height: 150px;
   width: 150px;
-  transform: translate(-70px, -185px);
+  -webkit-transform: translate(-70px, -185px);
+      -ms-transform: translate(-70px, -185px);
+          transform: translate(-70px, -185px);
+  -webkit-transition: all 0.5s 0s;
+  -o-transition: all 0.5s 0s;
   transition: all 0.5s 0s;
 }
 
 #button:hover .info > ul {
-  transform: translateX(70px);
+  -webkit-transform: translateX(70px);
+      -ms-transform: translateX(70px);
+          transform: translateX(70px);
+  -webkit-transition: all 0.5s 0s;
+  -o-transition: all 0.5s 0s;
   transition: all 0.5s 0s;
 }
 
@@ -192,36 +204,52 @@ img {
   height: 40px;
   width: 40px;
   position: relative;
+  -webkit-transition: all 0.5s 0s;
+  -o-transition: all 0.5s 0s;
   transition: all 0.5s 0s;
 }
 
 #button:hover .button {
   opacity: 1;
+  -webkit-transition: all 0.5s 0s;
+  -o-transition: all 0.5s 0s;
   transition: all 0.5s 0s;
 }
 
 #button:hover .mask {
-  transform: translate(-70px, -40px);
+  -webkit-transform: translate(-70px, -40px);
+      -ms-transform: translate(-70px, -40px);
+          transform: translate(-70px, -40px);
 }
 
 #button:hover .history {
-  transform: translate(-82px, 10px);
+  -webkit-transform: translate(-82px, 10px);
+      -ms-transform: translate(-82px, 10px);
+          transform: translate(-82px, 10px);
 }
 
 #button:hover .message {
-  transform: translate(-60px, 58px);
+  -webkit-transform: translate(-60px, 58px);
+      -ms-transform: translate(-60px, 58px);
+          transform: translate(-60px, 58px);
 }
 
 #button:hover .setting {
-  transform: translate(-8px, 77px);
+  -webkit-transform: translate(-8px, 77px);
+      -ms-transform: translate(-8px, 77px);
+          transform: translate(-8px, 77px);
 }
 
 #button:hover .sign {
-  transform: translate(42px, 55px);
+  -webkit-transform: translate(42px, 55px);
+      -ms-transform: translate(42px, 55px);
+          transform: translate(42px, 55px);
 }
 
 #button:hover .unread {
   opacity: 1;
+  -webkit-transition: all 0.5s 0s;
+  -o-transition: all 0.5s 0s;
   transition: all 0.5s 0s;
 }
 
@@ -241,12 +269,18 @@ img {
   height: 100%;
   width: 100%;
   position: relative;
+  -webkit-transition: all 0.5s 0s;
+  -o-transition: all 0.5s 0s;
   transition: all 0.5s 0s;
 }
 
 #button:hover .icon {
   background-color: rgba(48, 63, 159, 1);
   background-image: url(assets/images/atplus_green.png);
-  transform: scale(1.5, 1.5);
+  -webkit-transform: scale(1.5, 1.5);
+      -ms-transform: scale(1.5, 1.5);
+          transform: scale(1.5, 1.5);
+  -webkit-transition: all 0.5s 0s;
+  -o-transition: all 0.5s 0s;
   transition: all 0.5s 0s;
 }
