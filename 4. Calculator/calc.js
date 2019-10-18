@@ -75,5 +75,6 @@ function calc() {
     }
     catch (err) {
         result.value = err;
+        alert('计算表达式有误');
     }
 }
