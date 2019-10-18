@@ -1,0 +1,43 @@
+.operator button {
+    width: 50px;
+    height: 30px;
+    margin: 2px;
+    border-style: solid;
+    border-color: dodgerblue;
+    background-color: transparent;
+    outline: none;
+}
+
+.operator button:hover {
+    background-color: dodgerblue;
+    transition: all 0.5s 0s;
+}
+
+.operator button:active {
+    background-color: rgb(0, 95, 190);
+}
+
+#result {
+    width: 218px;
+    margin: 2px;
+    border-color: dodgerblue;
+    border-style: solid;
+    margin-bottom: 16px;
+    outline: none;
+    text-align: right;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.container {
+    width: 234px;
+    border-color: dodgerblue;
+    border-style: solid;
+    padding: 8px;
+}
+
+#title {
+    color: rgb(16, 173, 16);
+    text-align: center;
+    font-size: x-large;
+}
