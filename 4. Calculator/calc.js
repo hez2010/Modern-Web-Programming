@@ -1,3 +1,10 @@
+/*
+  Author: Steven He
+  School: Sun Yat-sen University
+  Student Number: 17364025
+  Date: 10/17/2019
+*/
+
 const result = document.querySelector('#result');
 const equ = document.querySelector('#btn-equ');
 
