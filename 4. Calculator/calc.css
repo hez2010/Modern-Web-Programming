@@ -37,10 +37,14 @@
 }
 
 .container {
+    position: absolute;
     width: 234px;
     border-color: dodgerblue;
     border-style: solid;
     padding: 8px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #title {
