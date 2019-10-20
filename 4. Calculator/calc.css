@@ -5,6 +5,34 @@
   Date: 10/17/2019
 */
 
+.background {
+    background-image: url('img.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    content: "";
+    position: absolute;
+    top: 0;
+    opacity: 60%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.background-black {
+    background-color: black;
+    background-attachment: fixed;
+    background-size: cover;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
 .operator button {
     width: 50px;
     height: 30px;
@@ -13,6 +41,7 @@
     border-color: dodgerblue;
     background-color: transparent;
     outline: none;
+    color: white;
 }
 
 .operator button:hover {
@@ -33,12 +62,14 @@
     outline: none;
     text-align: right;
     padding-left: 2px;
+    background-color: transparent;
+    color: white;
     padding-right: 2px;
 }
 
 .container {
     position: absolute;
-    width: 234px;
+    width: 231px;
     border-color: dodgerblue;
     border-style: solid;
     padding: 8px;
