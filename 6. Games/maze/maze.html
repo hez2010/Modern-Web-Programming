@@ -1,0 +1,46 @@
+<!--
+  Author: Steven He
+  School: Sun Yat-sen University
+  Student Number: 17364025
+  Date: 10/24/2019
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Mouse Maze</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="maze.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>The Amazing Mouse Maze!</h1>
+      <p>Move your mouse over the "S" to begin.</p>
+      <p id="status">Status Board</p>
+    </header>
+
+    <main id="maze">
+      <div class="wall top"></div>
+      <div class="wall left"></div>
+      <div class="wall right"></div>
+      <div class="start">S</div>
+      <div class="end">E</div>
+      <div class="wall middle"></div>
+      <div class="wall bottom"></div>
+    </main>
+
+    <footer>
+      <p>The object of this game is to guide the mouse cursor through the start area and get to the end area. Be sure
+        to avoid the walls:</p>
+      <div id="wall-sample"></div>
+      <p>Good Luck!</p>
+    </footer>
+  </div>
+
+  <script src="maze.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+/*
+  Author: Steven He
+  School: Sun Yat-sen University
+  Student Number: 17364025
+  Date: 10/24/2019
+*/
+
+body {
+  font-family: "Century Gothic", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+  
+.container {
+  margin-top: 3%;
+}
+  
+/* Header */
+
+header {
+    text-align: center;
+}
+  
+header h1 {
+  font-size: 30px;
+  font-weight: 500;
+}
+  
+header p {
+  font-size: 25px;
+}
+
+/* Status */
+
+#status {
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+#status[show] {
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+main {
+  width: 500px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+/* Wall bricks */
+
+.wall {
+  background-color: #eeeeee;
+}
+
+.wall[moved] {
+  background-color: red;
+}
+
+/* Main maze */
+
+#maze .top, .bottom {
+  height: 20%;
+  border: 1px solid black;
+}
+
+#maze .left, .right {
+  border: 1px solid black;
+  border-top: none;
+  height: 48%;
+  margin-top: -1px;
+  width: 30%;
+}
+
+#maze .left {
+  float: left;
+}
+
+#maze .right {
+  float: right;
+}
+
+#maze .start, .end {
+  margin-top: 2px;
+  position: relative;
+  height: 40px;
+  width: 40px;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#maze .start {
+  background-color: rgb(132, 255, 130);
+  clear: left;
+  float: left;
+}
+
+#maze .end {
+  background-color: rgb(132, 133, 255);
+  clear: right;
+  float: right;
+}
+
+#maze .middle {
+  position: relative;
+  top: 1px;
+  width: 20%;
+  height: 48%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 45px;
+  border: 1px solid black;
+  border-bottom: none;
+}
+
+/* Footer */
+
+footer {
+  width: 600px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#wall-sample {
+  width: 100px;
+  height: 25px;
+  margin: auto;
+  background-color: #eeeeee;
+  border: 1px solid black;
+}
