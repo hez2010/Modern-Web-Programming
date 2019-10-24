@@ -9,7 +9,7 @@ window.onload = () => {
   let lastActive = -1;
   let timer = 0;
   let currentScore = 0;
-  let currentTime = 0;
+  let currentTime = 30;
   let clicked = true;
 
   let stopGame = () => {
@@ -23,20 +23,21 @@ window.onload = () => {
 
   let startGame = () => {
     if (timer) return;
-    currentTime = currentScore = 0;
+    currentTime = 30;
+    currentScore = 0;
     time.value = currentTime.toString();
     score.value = currentScore.toString();
     result.value = '';
     timer = setInterval(() => {
-      if (!clicked) {
+      if (!clicked && currentScore > 0) {
         currentScore--;
         score.value = currentScore.toString();
       }
-      if (currentTime >= 30) {
+      if (currentTime <= 0) {
         stopGame();
         return;
       }
-      currentTime++;
+      currentTime--;
       clicked = false;
       if (lastActive !== -1) moles[lastActive].removeAttribute('active');
       lastActive = parseInt(Math.random() * moles.length);
