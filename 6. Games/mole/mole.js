@@ -1,3 +1,10 @@
+/*
+  Author: Steven He
+  School: Sun Yat-sen University
+  Student Number: 17364025
+  Date: 10/24/2019
+*/
+
 window.onload = () => {
   const moles = document.querySelectorAll('.mole span');
   const start = document.querySelector('#start');
