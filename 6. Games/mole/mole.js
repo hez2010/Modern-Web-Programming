@@ -50,6 +50,7 @@ window.onload = () => {
     v.setAttribute('index', i.toString());
     v.addEventListener('click', () => {
       if (!clicked && parseInt(v.getAttribute('index')) === lastActive) {
+        v.removeAttribute('active');
         currentScore++;
         score.value = currentScore.toString();
         clicked = true;
