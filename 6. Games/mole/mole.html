@@ -1,0 +1,127 @@
+<!--
+  Author: Steven He
+  School: Sun Yat-sen University
+  Student Number: 17364025
+  Date: 10/24/2019
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Whac-a-mole</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="mole.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Whac-a-mole</h1>
+      <p>Test you skill. How many boxes(moles) can you check(hit) in 30 seconds?</p>
+      <div id="menu">
+        <div class="menu left">
+          <div>
+            <button>Start Game</button>
+            <button>Stop Game</button>
+          </div>
+          <div><input id="result" readonly /></div>
+        </div>
+        <div class="menu right">
+          <div>Time: <input class="statistic" id="time" readonly value="0" /></div>
+          <div>Score: <input class="statistic" id="score" readonly value="0" /></div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <hr />
+      <div class="row mole">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="row mole">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="row mole">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="row mole">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="row mole">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="row mole">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <hr />
+    </main>
+    <div class="clear"></div>
+
+    <footer>
+      <p>Instructions:</p>
+      <ol>
+        <li>Click on the radio buttons(moles) as they are selected randomly by the computer.</li>
+        <li>1 point per hit, minus 1 point per miss.</li>
+      </ol>
+    </footer>
+  </div>
+
+  <script src="mole.js"></script>
+</body>
+
+</html>

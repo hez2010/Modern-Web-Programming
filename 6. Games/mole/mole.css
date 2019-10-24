@@ -1,0 +1,110 @@
+/*
+  Author: Steven He
+  School: Sun Yat-sen University
+  Student Number: 17364025
+  Date: 10/24/2019
+*/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Century Gothic", sans-serif;
+}
+  
+.container {
+  margin-top: 3%;
+}
+  
+/* Header */
+
+header {
+  text-align: center;
+}
+  
+header h1 {
+  font-size: 30px;
+}
+  
+header p {
+  font-size: 20px;
+}
+
+/* Status */
+
+#status {
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+#status[show] {
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+main {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  float: left;
+  overflow: auto;
+}
+
+.row {
+  display: block;
+  margin: 0 auto;
+}
+
+.mole span {
+  display: inline-block;
+  border-style: solid;
+  border-color: gainsboro;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  margin: 1px;
+}
+
+.mole span[active] {
+  border-color: lightskyblue;
+}
+
+footer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: sans-serif;
+}
+
+.clear {
+  clear: both;
+}
+
+.menu div {
+  display: block;
+  margin: 2px 0;
+}
+
+.statistic {
+  width: 40px;
+}
+
+#result {
+  width: 150px;
+}
+
+#menu {
+  position: relative;
+  width: 300px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left {
+  float: left;
+  text-align: left;
+}
+
+.right {
+  float: right;
+  text-align: right;
+}
