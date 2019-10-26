@@ -68,6 +68,10 @@ main {
   border-color: lightskyblue;
 }
 
+.mole span[touched] {
+  border-color: greenyellow;
+}
+
 footer {
   position: absolute;
   left: 50%;

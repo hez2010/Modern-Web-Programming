@@ -21,7 +21,10 @@ window.onload = () => {
 
   let stopGame = () => {
     result.value = 'Game Over'
-    if (lastActive !== -1) moles[lastActive].removeAttribute('active');
+    if (lastActive !== -1) {
+      moles[lastActive].removeAttribute('active');
+      moles[lastActive].removeAttribute('touched');
+    }
     clearInterval(timer);
     timer = 0;
     clicked = true;
@@ -46,7 +49,10 @@ window.onload = () => {
       }
       currentTime--;
       clicked = false;
-      if (lastActive !== -1) moles[lastActive].removeAttribute('active');
+      if (lastActive !== -1) {
+        moles[lastActive].removeAttribute('active');
+        moles[lastActive].removeAttribute('touched');
+      }
       lastActive = parseInt(Math.random() * moles.length);
       moles[lastActive].setAttribute('active', '');
       time.value = currentTime.toString();
@@ -58,6 +64,7 @@ window.onload = () => {
     v.addEventListener('click', () => {
       if (!clicked && parseInt(v.getAttribute('index')) === lastActive) {
         v.removeAttribute('active');
+        v.setAttribute('touched', '');
         currentScore++;
         score.value = currentScore.toString();
         clicked = true;
