@@ -31,11 +31,16 @@ table th[sort=desc]::after {
         trs.detach().appendTo(tbody);
     });
 }
-if (typeof $ === 'undefined') {
-    let jQuery = document.createElement('script');
-    jQuery.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js";
-    jQuery.onload = loadSorter;
-    document.body.appendChild(jQuery);
-}
-else loadSorter();
+let jQuery = document.createElement('script');
+jQuery.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js";
+jQuery.onload = loadSorter;
+document.body.appendChild(jQuery);
 ```
+
+# Website Examples
+1. http://ascii.911cha.com/
+2. https://www.jianshu.com/p/ac2c9e7b1d8f
+3. https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/index
+4. https://www.jianshu.com/p/36d736317c62
+5. https://blog.csdn.net/wexin_37276427/article/details/81038240
+6. ...
