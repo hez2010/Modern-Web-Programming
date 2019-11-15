@@ -5,13 +5,11 @@
   Date: 10/24/2019
 */
 
-window.onload = () => {
-  const moles = document.querySelectorAll('.mole span');
-  const start = document.querySelector('#start');
-  const stop = document.querySelector('#stop');
-  const result = document.querySelector('#result');
-  const time = document.querySelector('#time');
-  const score = document.querySelector('#score');
+$(window).load(() => {
+  const moles = $('.mole span');
+  const result = $('#result');
+  const time = $('#time');
+  const score = $('#score');
 
   let lastActive = -1;
   let timer = 0;
@@ -19,59 +17,51 @@ window.onload = () => {
   let currentTime = 30;
   let clicked = true;
 
-  let stopGame = () => {
-    result.value = 'Game Over'
+  const stopGame = () => {
+    result.val('Game Over')
     if (lastActive !== -1) {
-      moles[lastActive].removeAttribute('active');
-      moles[lastActive].removeAttribute('touched');
+      $(moles[lastActive]).removeAttr('active');
+      $(moles[lastActive]).removeAttr('touched');
     }
     clearInterval(timer);
-    timer = 0;
-    clicked = true;
-    lastActive = -1
+    timer = 0; clicked = true; lastActive = -1
   }
-
-  let startGame = () => {
+  const startGame = () => {
     if (timer) return;
     currentTime = 30;
     currentScore = 0;
-    time.value = currentTime.toString();
-    score.value = currentScore.toString();
-    result.value = '';
+    time.val(currentTime.toString());
+    score.val(currentScore.toString());
+    result.val('');
     timer = setInterval(() => {
       if (!clicked && currentScore > 0) {
         currentScore--;
-        score.value = currentScore.toString();
+        score.val(currentScore.toString());
       }
-      if (currentTime <= 0) {
-        stopGame();
-        return;
-      }
+      if (currentTime <= 0) { stopGame(); return; }
       currentTime--;
       clicked = false;
       if (lastActive !== -1) {
-        moles[lastActive].removeAttribute('active');
-        moles[lastActive].removeAttribute('touched');
+        $(moles[lastActive]).removeAttr('active');
+        $(moles[lastActive]).removeAttr('touched');
       }
       lastActive = parseInt(Math.random() * moles.length);
-      moles[lastActive].setAttribute('active', '');
-      time.value = currentTime.toString();
+      $(moles[lastActive]).attr({ active: '' });
+      time.val(currentTime.toString());
     }, 1000);
   }
-
-  moles.forEach((v, i) => {
-    v.setAttribute('index', i.toString());
-    v.addEventListener('click', () => {
-      if (!clicked && parseInt(v.getAttribute('index')) === lastActive) {
-        v.removeAttribute('active');
-        v.setAttribute('touched', '');
+  for (let i = 0; i < moles.length; i++) {
+    let v = $(moles[i]);
+    v.attr({ index: i.toString() });
+    v.click(() => {
+      if (!clicked && parseInt(v.attr('index')) === lastActive) {
+        v.removeAttr('active'); v.attr({ touched: '' });
         currentScore++;
-        score.value = currentScore.toString();
+        score.val(currentScore.toString());
         clicked = true;
       }
     })
-  })
-
-  start.addEventListener('click', startGame);
-  stop.addEventListener('click', stopGame);
-};
+  }
+  $('#start').click(startGame); 
+  $('#stop').click(stopGame);
+});

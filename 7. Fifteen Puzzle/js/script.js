@@ -33,20 +33,13 @@ class Game {
             const dimension = Math.floor(Math.random() * 4);
             let adjacent = this.adjacentGrid(emptyX, emptyY, dimension);
 
-            if (
-                adjacent.x < 0 ||
-                adjacent.x >= 4 ||
-                adjacent.y < 0 ||
-                adjacent.y >= 4
-            ) adjacent = this.adjacentGrid(emptyX, emptyY, dimension ^ 2);
+            if (adjacent.x < 0 || adjacent.x >= 4 || adjacent.y < 0 || adjacent.y >= 4) 
+                adjacent = this.adjacentGrid(emptyX, emptyY, dimension ^ 2);
 
             const emptyIndex = emptyX * 4 + emptyY;
             const adjacentIndex = adjacent.x * 4 + adjacent.y;
 
-            [map[emptyIndex], map[adjacentIndex]] = [
-                map[adjacentIndex],
-                map[emptyIndex]
-            ];
+            [map[emptyIndex], map[adjacentIndex]] = [map[adjacentIndex], map[emptyIndex]];
             this.empty = adjacent;
         }
 
@@ -56,7 +49,6 @@ class Game {
             for (let j = 0; j < 4; j++) {
                 if (i != this.empty.x || j != this.empty.y) {
                     const index = i * 4 + j;
-
                     this.resetGrid(i, j, Math.floor(map[index] / 4), map[index] % 4);
                 }
             }
@@ -73,8 +65,7 @@ class Game {
             "background-image": `url("panda.jpg")`
         });
 
-        div
-            .addClass("grid")
+        div.addClass("grid")
             .attr({ x, y, "ans-x": ansX, "ans-y": ansY })
             .css({ left: `${y * 100}px`, top: `${x * 100}px` })
             .append(img);
@@ -87,8 +78,7 @@ class Game {
 
             if (Math.abs(emptyX - locationX) + Math.abs(emptyY - locationY) !== 1) return;
 
-            div
-                .attr({ x: emptyX, y: emptyY })
+            div.attr({ x: emptyX, y: emptyY })
                 .css({ left: `${emptyY * 100}px`, top: `${emptyX * 100}px` });
 
             const locationIndex = locationX * 4 + locationY;
@@ -129,8 +119,7 @@ class Game {
     }
 
     resetGrid(x, y, ansX, ansY) {
-        this.container
-            .find(`.grid[ans-x="${ansX}"][ans-y="${ansY}"]`)
+        this.container.find(`.grid[ans-x="${ansX}"][ans-y="${ansY}"]`)
             .attr({ x, y })
             .css({ left: `${y * 100}px`, top: `${x * 100}px` });
     }

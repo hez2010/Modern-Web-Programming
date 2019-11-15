@@ -5,45 +5,39 @@
   Date: 10/24/2019
 */
 
-window.onload = () => {
-  const maze = document.querySelector("#maze");
-  const walls = document.querySelectorAll(".wall");
-  const start = document.querySelector(".start");
-  const end = document.querySelector(".end");
-  const status = document.querySelector("#status");
+$(window).load(() => {
+  $("#maze").mouseleave(() => {
+    if (!started) return;
+    isCheat = true;
+  });
+  const walls = $(".wall");
+  const status = $("#status");
 
   let started = false;
   let isCheat = false;
 
   let setStatus = message => {
-    status.textContent = message;
-    status.setAttribute("show", "");
+    status.text(message);
+    status.attr({ show: "" });
   }
 
-  maze.addEventListener("mouseleave", () => {
+  walls.mouseover((e) => {
     if (!started) return;
-    isCheat = true;
+    $(e.target).attr({ touched: "" });
+    setStatus("You Lose!");
+    started = false;
   });
 
-  walls.forEach(v => {
-    v.addEventListener("mouseover", () => {
-      if (!started) returnl
-      v.setAttribute("touched", "");
-      setStatus("You Lose!");
-      started = false;
-    });
-  })
-
-  start.addEventListener("mouseover", () => {
-    walls.forEach(v => v.removeAttribute("touched"));
-    status.removeAttribute("show");
+  $(".start").mouseover(() => {
+    walls.removeAttr("touched");
+    status.removeAttr("show");
     started = true;
     isCheat = false;
   });
 
-  end.addEventListener("mouseover", () => {
+  $(".end").mouseover(() => {
     if (!started) return;
     setStatus(isCheat ? "Don't cheat, you should start from the 'S' and move to the 'E' inside the maze!" : "You Win!");
     started = false;
   });
-};
+});

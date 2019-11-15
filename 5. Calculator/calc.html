@@ -15,38 +15,39 @@
         <div class="main">
             <input id="result" value="0" type="text" readonly />
             <div class="row operator">
-                <button id="btn-7" onclick="clickNumber(7)" type="button">7</button>
-                <button id="btn-8" onclick="clickNumber(8)" type="button">8</button>
-                <button id="btn-9" onclick="clickNumber(9)" type="button">9</button>
-                <button id="btn-frac" onclick="clickOperator('/')" type="button">/</button>
+                <button class="number-btn" type="button">7</button>
+                <button class="number-btn" type="button">8</button>
+                <button class="number-btn" type="button">9</button>
+                <button class="operator-btn" type="button">/</button>
             </div>
             <div class="row operator">
-                <button id="btn-4" onclick="clickNumber(4)" type="button">4</button>
-                <button id="btn-5" onclick="clickNumber(5)" type="button">5</button>
-                <button id="btn-6" onclick="clickNumber(6)" type="button">6</button>
-                <button id="btn-time" onclick="clickOperator('*')" type="button">*</button>
+                <button class="number-btn" type="button">4</button>
+                <button class="number-btn" type="button">5</button>
+                <button class="number-btn" type="button">6</button>
+                <button class="operator-btn" type="button">*</button>
             </div>
             <div class="row operator">
-                <button id="btn-1" onclick="clickNumber(1)" type="button">1</button>
-                <button id="btn-2" onclick="clickNumber(2)" type="button">2</button>
-                <button id="btn-3" onclick="clickNumber(3)" type="button">3</button>
-                <button id="btn-sub" onclick="clickOperator('-');" type="button">-</button>
+                <button class="number-btn" type="button">1</button>
+                <button class="number-btn" type="button">2</button>
+                <button class="number-btn" type="button">3</button>
+                <button class="operator-btn" type="button">-</button>
             </div>
             <div class="row operator">
-                <button id="btn-0" onclick="clickNumber(0)" type="button">0</button>
-                <button id="btn-point" onclick="clickOperator('.')" type="button">.</button>
-                <button id="btn-back" onclick="backspace()" type="button">←</button>
-                <button id="btn-add" onclick="clickOperator('+')" type="button">+</button>
+                <button class="number-btn" type="button">0</button>
+                <button class="operator-btn" type="button">.</button>
+                <button id="btn-back" type="button">←</button>
+                <button class="operator-btn" type="button">+</button>
             </div>
             <div class="row operator">
-                <button id="btn-left" onclick="clickOperator('(')" type="button">(</button>
-                <button id="btn-right" onclick="clickOperator(')')" type="button">)</button>
-                <button id="btn-ce" onclick="clearResult()" type="button">CE</button>
-                <button id="btn-equ"  onclick="clickOperator('=')" type="button">=</button>
+                <button class="operator-btn" type="button">(</button>
+                <button class="operator-btn" type="button">)</button>
+                <button id="btn-ce" type="button">CE</button>
+                <button class="operator-btn" id="btn-equ" type="button">=</button>
             </div>
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
     <script src="calc.js"></script>
 </body>
 
