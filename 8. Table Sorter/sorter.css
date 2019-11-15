@@ -31,7 +31,11 @@ table th[sort=desc] {
     background-image: url(descend.png);
 }
 
-.alternate {
+table tr:nth-child(odd) {
+    background: white;
+}
+
+table tr:nth-child(even) {
     background: lightgray;
 }
 
