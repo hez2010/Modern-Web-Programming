@@ -1,0 +1,19 @@
+{
+  "name": "signup",
+  "version": "1.0.0",
+  "description": "A simple sign-up HTTP server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hez2010/WebCourseHomework.git"
+  },
+  "author": "Steven He",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hez2010/WebCourseHomework/issues"
+  },
+  "homepage": "https://github.com/hez2010/WebCourseHomework#readme"
+}
