@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <title>用户注册</title>
+    <link rel="stylesheet" type="text/css" href="/fomantic/semantic.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+
+<body>
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <h1 class="ui primary header">用户注册</h1>
+            <div>{totalError}</div>
+            <form class="ui large form {signupSuccessClass}" action="/signup" method="POST">
+                <div class="ui segment">
+                    <div class="field {userNameErrorClass}">
+                        <div class="ui left icon input" data-tooltip="6~18 位英文字母、数字或下划线，必须以英文字母开头">
+                            <i class="user icon"></i>
+                            <input placeholder="用户名" name='userName' value='' />
+                        </div>
+                        <div>{userNameError}</div>
+                    </div>
+                    <div class="field {schoolNumberErrorClass}">
+                        <div class="ui left icon input" data-tooltip="8 位数字，不能以 0 开头">
+                            <i class="user icon"></i>
+                            <input placeholder="学号" name='schoolNumber' value='' />
+                        </div>
+                        <div>{schoolNumberError}</div>
+                    </div>
+                    <div class="field {phoneErrorClass}">
+                        <div class="ui left icon input" data-tooltip="11 位数字，不能以 0 开头">
+                            <i class="user icon"></i>
+                            <input placeholder="电话" name='phone' value='' />
+                        </div>
+                        <div>{phoneError}</div>
+                    </div>
+                    <div class="field {emailErrorClass}">
+                        <div class="ui left icon input" data-tooltip="电子邮箱地址">
+                            <i class="user icon"></i>
+                            <input placeholder="邮箱" name='email' value='' />
+                        </div>
+                        <div>{emailError}</div>
+                    </div>
+                    <div>
+                        <button class="ui button" type="reset">重置</button>
+                        <button class="ui primary submit button" type="submit">提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/fomantic/semantic.min.js"></script>
+</body>
+
+</html>
