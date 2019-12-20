@@ -90,6 +90,7 @@ window.onload = () => {
     document.querySelector('.apb').addEventListener('click', () => {
         map = [[0, false], [1, false], [2, false], [3, false], [4, false]];
         map = map.sort((a, b) => Math.random() > 0.5 ? 1 : -1);
+        document.querySelector('#order').innerText = map.map(v => String.fromCharCode(65 + v[0])).join(', ');
         clickButton();
     });
 };
