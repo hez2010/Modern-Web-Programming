@@ -52,7 +52,7 @@ window.onload = () => {
         self.setAttribute('value', '...');
         document.querySelector('#control-ring').setAttribute('calculating', 'calculating');
 
-        fetch('http://localhost:3000/api')
+        fetch('http://localhost:3000/api?t=' + Date.now() + Math.random())
             .then(res => res.text())
             .then(data => {
                 if (mutex !== pre) return;
@@ -85,7 +85,6 @@ window.onload = () => {
 
     const completed = () => {
         num++;
-        console.log(num);
         if (num === 5) {
             sumClick(document.querySelector('#info-bar'));
         }
@@ -93,7 +92,6 @@ window.onload = () => {
 
     const clickButton = () => {
         document.querySelectorAll('#control-ring li').forEach(v => {
-            console.log(v);
             buttonClick(completed)(v);
         });
     };
