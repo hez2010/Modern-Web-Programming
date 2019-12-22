@@ -34,6 +34,13 @@ window.onload = () => {
 
     document.querySelector('#bottom-positioner').addEventListener('mouseleave', e => mutex++);
 
+    const request = (url, callback) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.onload = () => callback(xhr.response);
+        xhr.send();
+    }
+
     const buttonClick = callback => e => {
         let self = e.target || e;
         let pre = mutex;
@@ -49,29 +56,26 @@ window.onload = () => {
         self.setAttribute('value', '...');
         document.querySelector('#control-ring').setAttribute('calculating', 'calculating');
 
-        fetch('http://localhost:3000/api')
-            .then(res => res.text())
-            .then(data => {
-                if (mutex !== pre) return;
+        request('http://localhost:3000/api', data => {
+            if (mutex !== pre) return;
 
-                self.querySelector('.unread').innerText = data;
+            self.querySelector('.unread').innerText = data;
 
-                self.removeAttribute('calculating');
-                self.setAttribute('calculated', 'calculated');
-                self.setAttribute('value', data);
+            self.removeAttribute('calculating');
+            self.setAttribute('calculated', 'calculated');
+            self.setAttribute('value', data);
 
-                document.querySelector('#control-ring').removeAttribute('calculating');
+            document.querySelector('#control-ring').removeAttribute('calculating');
 
-                let left = [];
-                document.querySelectorAll('#control-ring li').forEach(li => {
-                    if (li.getAttribute('value') === '...' || !li.getAttribute('value')) left.push(li);
-                });
+            let left = [];
+            document.querySelectorAll('#control-ring li').forEach(li => {
+                if (li.getAttribute('value') === '...' || !li.getAttribute('value')) left.push(li);
+            });
 
-                if (left.length == 0) document.querySelector('#info-bar').setAttribute('valid', 'valid');
+            if (left.length == 0) document.querySelector('#info-bar').setAttribute('valid', 'valid');
 
-                if (callback) callback();
-            })
-            .catch(err => console.log(err));
+            if (callback) callback();
+        });
     };
 
     document.querySelectorAll('#control-ring li').forEach(v => {
