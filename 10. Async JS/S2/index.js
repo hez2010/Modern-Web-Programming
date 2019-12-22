@@ -84,7 +84,7 @@ window.onload = () => {
 
     const clickButton = index => {
         const lis = document.querySelectorAll('#control-ring li');
-        buttonClick(index === 4 ? () => sumClick(document.querySelector('#info-bar')) : () => clickButton(index + 1))(lis[index]);
+        buttonClick(index === 4 ? () => setTimeout(() => sumClick(document.querySelector('#info-bar')), 500) : () => clickButton(index + 1))(lis[index]);
     };
 
     document.querySelector('.apb').addEventListener('click', () => clickButton(0));

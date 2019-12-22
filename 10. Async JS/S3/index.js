@@ -90,7 +90,7 @@ window.onload = () => {
     const completed = () => {
         num++;
         if (num === 5) {
-            sumClick(document.querySelector('#info-bar'));
+            setTimeout(() => sumClick(document.querySelector('#info-bar')), 500);
         }
     }
 

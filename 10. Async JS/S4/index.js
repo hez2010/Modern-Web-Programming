@@ -88,7 +88,7 @@ window.onload = () => {
         const lis = document.querySelectorAll('#control-ring li');
         const next = map.findIndex(i => !i[1]);
         if (next !== -1) map[next][1] = true;
-        buttonClick(next === 4 ? () => sumClick(document.querySelector('#info-bar')) : () => clickButton())(lis[map[next][0]]);
+        buttonClick(next === 4 ? () => setTimeout(() => sumClick(document.querySelector('#info-bar')), 500) : () => clickButton())(lis[map[next][0]]);
     };
 
     document.querySelector('.apb').addEventListener('click', () => {
