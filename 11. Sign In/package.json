@@ -1,0 +1,29 @@
+{
+  "name": "signin",
+  "version": "1.0.0",
+  "description": "Sign-in web course homework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hez2010/WebCourseHomework.git"
+  },
+  "keywords": [
+    "signin",
+    "web",
+    "homework",
+    "sysu"
+  ],
+  "author": "Steven He",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hez2010/WebCourseHomework/issues"
+  },
+  "homepage": "https://github.com/hez2010/WebCourseHomework#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.4.1"
+  }
+}
