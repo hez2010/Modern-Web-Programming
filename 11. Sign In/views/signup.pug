@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        title User Portal
+    body
+        p Sign Up
+        form(action="/regist" method="post")
+            div
+                label(for="username") 用户名
+                input#username(type="text" name="username" value="#{username}")
+            div
+                label(for="password") 密码
+                input#password(type="text" name="password")
+            div
+                label(for="number") 学号
+                input#number(type="text" name="number" value="#{number}")
+            div
+                label(for="email") Email
+                input#email(type="text" name="email" value="#{email}")
+            div
+                label(for="phone") 电话
+                input#phone(type="text" name="phone" value="#{phone}")
+            button(type="submit") submit
