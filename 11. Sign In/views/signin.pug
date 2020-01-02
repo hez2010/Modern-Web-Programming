@@ -11,7 +11,7 @@ html(lang="zh-CN")
         div(class="ui middle aligned center aligned grid")
             div(class="column")
                 h1(class="ui primary header") 用户登录
-                form(action="/signin", method="post", class="ui large form" class=signupSuccessClass)
+                form(action="/", method="post", class="ui large form" class=signupSuccessClass)
                     div(class="ui segment")
                         div(class="field" class=usernameErrorClass)
                             div(class="ui left icon input", data-tooltip="6~18 位英文字母、数字或下划线，必须以英文字母开头")
@@ -26,8 +26,8 @@ html(lang="zh-CN")
                             div
                                 span(class="ui text red") #{passwordError}
                         div
-                            button(type="reset", class="ui button") 重置
                             button(type="submit", class="ui primary submit button") 登录
+                            a(class="ui button", href="/regist") 注册
 
         script(src="/js/jquery.min.js")
         script(src="/fomantic/semantic.min.js")

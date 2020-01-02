@@ -11,7 +11,7 @@ const { HomeController } = require('./controllers/home');
 const { auth } = require('./middlewares/auth');
 
 
-const port = 3000;
+const port = 8000;
 const app = express();
 app.listen(port, () => console.log(`app listening on port ${port}`));
 
@@ -22,16 +22,20 @@ app.use('/', express.static(path.join(__dirname, 'wwwroot')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(session({ secret: 'signin', resave: false, saveUninitialized: true }));
+app.use(session({
+    secret: 'signin-steve-he',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        path: '/',
+        httpOnly: true,
+        maxAge: 24 * 3600 * 1000
+    },
+    store: new session.MemoryStore()
+}));
 app.use(auth);
 
 const routes = [
-    {
-        path: '/',
-        method: 'GET',
-        controller: HomeController,
-        action: 'index'
-    },
     {
         path: '/regist',
         method: 'GET',
@@ -45,22 +49,16 @@ const routes = [
         action: 'signup_post'
     },
     {
-        path: '/signin',
+        path: '/',
         method: 'GET',
         controller: HomeController,
         action: 'signin_get'
     },
     {
-        path: '/signin',
+        path: '/',
         method: 'POST',
         controller: HomeController,
         action: 'signin_post'
-    },
-    {
-        path: '/user',
-        method: 'GET',
-        controller: HomeController,
-        action: 'user'
     },
     {
         path: '/signout',

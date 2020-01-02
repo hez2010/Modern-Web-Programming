@@ -26,7 +26,7 @@ const rules = [
     }
 ];
 
-function validateInput(data) {
+function validateInput(data, forceFields) {
     const err = [];
     for (const rule of rules) {
         if (data[rule.field]) {
@@ -34,8 +34,16 @@ function validateInput(data) {
                 err.push({
                     field: rule.field,
                     message: rule.message
-                })
+                });
             }
+        }
+    }
+    for (const field of forceFields) {
+        if (!data[field]) {
+            err.push({
+                field,
+                message: '此项不能为空'
+            });
         }
     }
     return err;

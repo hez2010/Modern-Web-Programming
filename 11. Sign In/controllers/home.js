@@ -10,16 +10,12 @@ class HomeController {
         this.res = res;
     }
 
-    index() {
-        if (isLogin(this.req)) this.res.render("signedinindex.pug", { username: this.req.user.username });
-        else this.res.render("index.pug")
-    }
-
     async signup_post() {
         if (isLogin(this.req)) 
             await logout(this.req, this.res);
         const { username, password, number, phone, email } = this.req.body;
-        const validationResult = validateInput({ username, password, number, phone, email });
+        const validationResult = validateInput({ username, password, number, phone, email },
+            [ 'username', 'password', 'number', 'phone', 'email' ]);
         if (validationResult.length > 0) {
             const model = { username, number, phone, email, signupSuccessClass: 'error' };
             for (const r of validationResult) {
@@ -57,16 +53,20 @@ class HomeController {
             return;
         }
 
-        this.res.redirect('/user');
+        this.res.redirect(`/?username=${username}`);
     }
 
     signup_get() {
-        if (isLogin(this.req)) this.res.redirect('/user');
+        if (isLogin(this.req)) this.res.redirect('/');
         else this.res.render('signup.pug');
     }
 
-    signin_get() {
-        if (isLogin(this.req)) this.res.redirect('/user');
+    async signin_get() {
+        if (!!this.req.query.username) {
+            await this.user(this.req.query.username);
+            return;
+        }
+        if (isLogin(this.req)) this.res.redirect(`/?username=${this.req.user.username}`);
         else this.res.render('signin.pug');
     }
 
@@ -75,7 +75,7 @@ class HomeController {
             await logout(this.req, this.res);
         const { username, password } = this.req.body;
         
-        const validationResult = validateInput({ username, password });
+        const validationResult = validateInput({ username, password }, [ 'username', 'password' ]);
         if (validationResult.length > 0) {
             const model = { username, signupSuccessClass: 'error' };
             for (const r of validationResult) {
@@ -86,7 +86,7 @@ class HomeController {
             return;
         }
         const data = await login(this.req, this.res, username, password)
-        if (data === 2) this.res.redirect('/user');
+        if (data === 2) this.res.redirect(`/?username=${username}`);
         else {
             const model = { username, signupSuccessClass: 'error' };
             if (data === 0) {
@@ -100,9 +100,9 @@ class HomeController {
         }
     }
 
-    async user() {
+    async user(username) {
         const token = isLogin(this.req);
-        if (!token) this.res.render('notsignin.pug');
+        if (!token || this.req.user.username !== username) this.res.render('notsignin.pug');
         else {
             const data = await getUserData(this.req, token);
             data.username = this.req.user.username;

@@ -18,7 +18,7 @@ async function login(req, res, username, password) {
     const hashedPassword = hashPassword(password);
     if (data.password != hashedPassword) return 1;
     const token = uuidv1();
-    res.cookie('user', JSON.stringify({ username, token }));
+    res.cookie('user', JSON.stringify({ username, token }), { maxAge: 24 * 3600 * 1000, httpOnly: true });
     req.session[token] = username;
     return 2;
 }
@@ -40,7 +40,7 @@ async function regist(req, res, username, password, userdata) {
     let collection = db.collection('user');
     if (!collection)
         collection = await db.createCollection('user');
-    
+
     const { number, email, phone } = userdata;
 
     const data = await collection.findOne({ 'username': username });
@@ -54,7 +54,7 @@ async function regist(req, res, username, password, userdata) {
     const hashedPassword = hashPassword(password);
     collection.insertOne({ username, password: hashedPassword, number, email, phone });
     const token = uuidv1();
-    res.cookie('user', JSON.stringify({ username, token }));
+    res.cookie('user', JSON.stringify({ username, token }), { maxAge: 24 * 3600 * 1000, httpOnly: true });
     req.session[token] = username;
     return null;
 }
