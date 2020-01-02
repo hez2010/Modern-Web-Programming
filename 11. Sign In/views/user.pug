@@ -8,32 +8,31 @@ html(lang="zh-CN")
         link(rel="stylesheet", href="/css/style.css")
         title 用户详情
     body
-
-    div(class="ui middle aligned center aligned grid")
-        div(class="column")
-            h1(class="ui primary header") 用户详情
-            div(class="ui segment")
-                div(class="ui relexed divided list")
-                    div(class="item")
-                        i(class="large user middle aligned icon")
-                        div(class="content")
-                            a(class="header") 用户
-                            div(class="description") #{username}
-                    div(class="item")
-                        i(class="large address card middle aligned icon")
-                        div(class="content")
-                            a(class="header") 学号
-                            div(class="description") #{number}
-                    div(class="item")
-                        i(class="large phone middle aligned icon")
-                        div(class="content")
-                            a(class="header") 电话
-                            div(class="description") #{phone}
-                    div(class="item")
-                        i(class="large envelope middle aligned icon")
-                        div(class="content")
-                            a(class="header") 邮箱
-                            div(class="description") #{email}
-            div
-                form(action="/signout", method="post")
-                    button(type="submit", class="ui button") 退出
+        div(class="ui middle aligned center aligned grid")
+            div(class="column")
+                h1(class="ui primary header") 用户详情
+                div(class="ui segment")
+                    div(class="ui relexed divided list")
+                        div(class="item")
+                            i(class="large user middle aligned icon")
+                            div(class="content")
+                                a(class="header") 用户
+                                div(class="description") #{username}
+                        div(class="item")
+                            i(class="large address card middle aligned icon")
+                            div(class="content")
+                                a(class="header") 学号
+                                div(class="description") #{number}
+                        div(class="item")
+                            i(class="large phone middle aligned icon")
+                            div(class="content")
+                                a(class="header") 电话
+                                div(class="description") #{phone}
+                        div(class="item")
+                            i(class="large envelope middle aligned icon")
+                            div(class="content")
+                                a(class="header") 邮箱
+                                div(class="description") #{email}
+                div
+                    form(action="/signout", method="post")
+                        button(type="submit", class="ui button") 退出
