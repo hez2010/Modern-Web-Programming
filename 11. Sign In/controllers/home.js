@@ -14,8 +14,8 @@ class HomeController {
         if (isLogin(this.req)) 
             await logout(this.req, this.res);
         const { username, password, repeatPassword, number, phone, email } = this.req.body;
-        const validationResult = validateInput({ username, password, number, phone, email },
-            [ 'username', 'password', 'number', 'phone', 'email' ]);
+        const validationResult = validateInput({ username, password, number, phone, email, repeatPassword },
+            [ 'username', 'password', 'number', 'phone', 'email', 'repeatPassword' ]);
         if (password !== repeatPassword)
             validationResult.push({ field: 'repeatPassword', message: '密码与重复密码不一致' });
         if (validationResult.length > 0) {
