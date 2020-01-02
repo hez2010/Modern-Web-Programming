@@ -6,7 +6,7 @@ const rules = [
     },
     {
         field: 'password',
-        rule: v => !!v && v.length >= 6,
+        rule: v => !!v && v.match(/^[a-zA-Z0-9_\-]{6,12}$/g),
         message: '密码不符合要求'
     },
     {

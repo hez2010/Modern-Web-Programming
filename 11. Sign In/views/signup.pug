@@ -20,11 +20,17 @@ html(lang="zh-CN")
                             div
                                 span(class="ui text red") #{usernameError}
                         div(class="field" class=passwordErrorClass)
-                            div(class="ui left icon input", data-tooltip="6 位字符或以上")
+                            div(class="ui left icon input", data-tooltip="6~12 位数字、大小写字母、中划线、下划线")
                                 i(class="certificate icon")
                                 input#password(type="password", placeholder="密码" , name="password")
                             div
                                 span(class="ui text red") #{passwordError}
+                        div(class="field" class=repeatPasswordErrorClass)
+                            div(class="ui left icon input", data-tooltip="6~12 位数字、大小写字母、中划线、下划线")
+                                i(class="certificate icon")
+                                input#repeatPassword(type="password", placeholder="重复密码" , name="repeatPassword")
+                            div
+                                span(class="ui text red") #{repeatPasswordError}
                         div(class="field" class=numberErrorClass)
                             div(class="ui left icon input", data-tooltip="8 位数字，不能以 0 开头")
                                 i(class="address card icon")

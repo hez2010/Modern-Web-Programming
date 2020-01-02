@@ -13,7 +13,7 @@ class HomeController {
     async signup_post() {
         if (isLogin(this.req)) 
             await logout(this.req, this.res);
-        const { username, password, number, phone, email } = this.req.body;
+        const { username, password, repeatPassword, number, phone, email } = this.req.body;
         const validationResult = validateInput({ username, password, number, phone, email },
             [ 'username', 'password', 'number', 'phone', 'email' ]);
         if (validationResult.length > 0) {
@@ -22,6 +22,14 @@ class HomeController {
                 model[r.field + 'ErrorClass'] = 'error';
                 model[r.field + 'Error'] = r.message;
             }
+            this.res.render('signup.pug', model);
+            return;
+        }
+
+        if (password !== repeatPassword) {
+            const model = { username, number, phone, email, signupSuccessClass: 'error' };
+            model.repeatPasswordError = '密码与重复密码不一致';
+            model.repeatPasswordErrorClass = 'error';
             this.res.render('signup.pug', model);
             return;
         }
