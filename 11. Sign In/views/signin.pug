@@ -1,19 +1,33 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang="zh-CN")
     head
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible" content="ie=edge")
-        title User Portal
+        link(rel="stylesheet", href="/fomantic/semantic.min.css")
+        link(rel="stylesheet", href="/css/style.css")
+        title 用户登录
     body
-        p Sign In
-        form(action="/signin" method="post")
-            div
-                label(for="username") 用户名
-                input#username(type="text" name="username" value=username)
-                div #{username_error}
-            div
-                label(for="password") 密码
-                input#password(type="text" name="password")
-                div #{password_error}
-            button(type="submit") submit
+        div(class="ui middle aligned center aligned grid")
+            div(class="column")
+                h1(class="ui primary header") 用户登录
+                form(action="/signin", method="post", class="ui large form" class=signupSuccessClass)
+                    div(class="ui segment")
+                        div(class="field" class=usernameErrorClass)
+                            div(class="ui left icon input", data-tooltip="6~18 位英文字母、数字或下划线，必须以英文字母开头")
+                                i(class="user icon")
+                                input#username(type="text", placeholder="用户名", name="username", value=username)
+                            div
+                                span(class="ui text red") #{usernameError}
+                        div(class="field" class=passwordErrorClass)
+                            div(class="ui left icon input", data-tooltip="6 位字符或以上")
+                                i(class="certificate icon")
+                                input#password(type="password", placeholder="密码" , name="password")
+                            div
+                                span(class="ui text red") #{passwordError}
+                        div
+                            button(type="reset", class="ui button") 重置
+                            button(type="submit", class="ui primary submit button") 登录
+
+        script(src="/js/jquery.min.js")
+        script(src="/fomantic/semantic.min.js")

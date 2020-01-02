@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+html(lang="zh-CN")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        link(rel="stylesheet", href="/fomantic/semantic.min.css")
+        link(rel="stylesheet", href="/css/style.css")
+        title 用户信息
+    body
+
+    div(class="ui middle aligned center aligned grid")
+        div(class="column")
+            h1(class="ui primary header") 用户详情
+            div(class="ui segment")
+                div(class="ui grid")
+                    div(class="four wide cloumn")
+                        strong 用户名
+                    div(class="eight wide cloumn")
+                        p #{username}
+                div(class="ui grid")
+                    div(class="four wide cloumn")
+                        strong 学号
+                    div(class="eight wide cloumn")
+                        p #{number}
+                div(class="ui grid")
+                    div(class="four wide cloumn")
+                        strong 电话
+                    div(class="eight wide cloumn")
+                        p #{phone}
+                div(class="ui grid")
+                    div(class="four wide cloumn")
+                        strong 邮箱
+                    div(class="eight wide cloumn")
+                        p #{email}
+            div
+                form(action="/signout", method="post")
+                    button(type="submit", class="ui button") 退出

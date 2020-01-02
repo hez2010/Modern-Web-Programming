@@ -1,26 +1,51 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang="zh-CN")
     head
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible" content="ie=edge")
-        title User Portal
+        link(rel="stylesheet", href="/fomantic/semantic.min.css")
+        link(rel="stylesheet", href="/css/style.css")
+        title 用户注册
     body
-        p Sign Up
-        form(action="/regist" method="post")
-            div
-                label(for="username") 用户名
-                input#username(type="text" name="username" value="#{username}")
-            div
-                label(for="password") 密码
-                input#password(type="text" name="password")
-            div
-                label(for="number") 学号
-                input#number(type="text" name="number" value="#{number}")
-            div
-                label(for="email") Email
-                input#email(type="text" name="email" value="#{email}")
-            div
-                label(for="phone") 电话
-                input#phone(type="text" name="phone" value="#{phone}")
-            button(type="submit") submit
+        div(class="ui middle aligned center aligned grid")
+            div(class="column")
+                h1(class="ui primary header") 用户注册
+                form(action="/regist", method="post", class="ui large form" class=signupSuccessClass)
+                    div(class="ui segment")
+                        div(class="field" class=usernameErrorClass)
+                            div(class="ui left icon input", data-tooltip="6~18 位英文字母、数字或下划线，必须以英文字母开头")
+                                i(class="user icon")
+                                input#username(type="text", placeholder="用户名", name="username", value=username)
+                            div
+                                span(class="ui text red") #{usernameError}
+                        div(class="field" class=passwordErrorClass)
+                            div(class="ui left icon input", data-tooltip="6 位字符或以上")
+                                i(class="certificate icon")
+                                input#password(type="password", placeholder="密码" , name="password")
+                            div
+                                span(class="ui text red") #{passwordError}
+                        div(class="field" class=numberErrorClass)
+                            div(class="ui left icon input", data-tooltip="8 位数字，不能以 0 开头")
+                                i(class="address card icon")
+                                input#number(type="text", placeholder="学号", name="number", value=number)
+                            div
+                                span(class="ui text red") #{numberError}
+                        div(class="field" class=phoneErrorClass)
+                            div(class="ui left icon input", data-tooltip="11 位数字，不能以 0 开头")
+                                i(class="phone icon")
+                                input#phone(type="text", placeholder="电话", name="phone", value=phone)
+                            div
+                                span(class="ui text red") #{phoneError}
+                        div(class="field" class=emailErrorClass)
+                            div(class="ui left icon input", data-tooltip="电子邮箱地址")
+                                i(class="envelope icon")
+                                input#email(type="text", placeholder="邮箱", name="email", value=email)
+                            div
+                                span(class="ui text red") #{emailError}
+                        div
+                            button(type="reset", class="ui button") 重置
+                            button(type="submit", class="ui primary submit button") 注册
+
+        script(src="/js/jquery.min.js")
+        script(src="/fomantic/semantic.min.js")

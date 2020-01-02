@@ -14,13 +14,13 @@ async function login(req, res, username, password) {
         collection = await db.createCollection('user');
 
     const data = await collection.findOne({ 'username': username });
-    if (!data) return false;
+    if (!data) return 0;
     const hashedPassword = hashPassword(password);
-    if (data.password != hashedPassword) return false;
+    if (data.password != hashedPassword) return 1;
     const token = uuidv1();
     res.cookie('user', JSON.stringify({ username, token }));
     req.session[token] = username;
-    return true;
+    return 2;
 }
 
 async function getUserData(req, token) {
@@ -32,7 +32,7 @@ async function getUserData(req, token) {
 
     const data = await collection.findOne({ 'username': username });
     if (!data) return null;
-    return data.userdata;
+    return { number: data.number, phone: data.phone, email: data.email };
 }
 
 async function regist(req, res, username, password, userdata) {
@@ -40,19 +40,27 @@ async function regist(req, res, username, password, userdata) {
     let collection = db.collection('user');
     if (!collection)
         collection = await db.createCollection('user');
+    
+    const { number, email, phone } = userdata;
 
     const data = await collection.findOne({ 'username': username });
-    if (data) return false;
+    if (data) return 'username';
+
+    for (const key in userdata) {
+        const entry = await collection.findOne({ [key]: userdata[key] });
+        if (entry) return key;
+    }
+
     const hashedPassword = hashPassword(password);
-    collection.insertOne({ username, password: hashedPassword, userdata });
+    collection.insertOne({ username, password: hashedPassword, number, email, phone });
     const token = uuidv1();
     res.cookie('user', JSON.stringify({ username, token }));
     req.session[token] = username;
-    return true;
+    return null;
 }
 
-function logout(req, res) {
-    req.session.regenerate();
+async function logout(req, res) {
+    await new Promise((res, rej) => req.session.regenerate(() => { res() }));
     res.clearCookie('user');
     return true;
 }
